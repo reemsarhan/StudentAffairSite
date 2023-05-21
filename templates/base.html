@@ -1,0 +1,59 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="{% static 'images/icon.webp' %}" />
+    <title>FCAI Student Affairs</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="javascript" href="{% static 'js/logic.js' %}" />
+  </head>
+  <body>
+    <header>
+      <div class="navleft">
+        <sub
+          ><img
+            src="{% static 'images/icon.webp' %}"
+            alt="icon"
+            style="width: 40px"
+        /></sub>
+        <a
+          style="
+            text-decoration: none;
+            color: black;
+            font-size: 25px;
+            font-weight: bold;
+          "
+          href="index.html"
+          ><span style="margin-left: 10px"
+            ><sup> FCAI student Affairs</sup></span
+          ></a
+        >
+      </div>
+
+      <input type="checkbox" id="menuBar" />
+      <label for="menuBar">Menu</label>
+      <nav class="navbar">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="studentInfo.html">search students </a></li>
+          <li><a href="addStudent.html">Add New Student</a></li>
+          <li><a href="allStatus.html">View Status</a></li>
+          <li>
+            <a href="index.html">Username </a>
+            <ul>
+              <li><a href="login.html" class="sign-out-btn">Sign Out </a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    {% block body %} {% endblock body %}
+    <footer>
+      <p>Copyright © DREAM TEAM</p>
+    </footer>
+  </body>
+</html>

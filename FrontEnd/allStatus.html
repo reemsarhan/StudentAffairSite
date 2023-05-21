@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Status</title>
+  <link rel="icon" href="images/icon.webp">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+
+  </style>
+
+</head>
+
+<body>
+  <header>
+    <div class="navleft">
+      <sub><img src="images/icon.webp" alt="icon" style="width: 40px;"></sub>
+      <a style="text-decoration: none; color: black; font-size: 25px; font-weight: bold;" href="index.html"><span
+          style="margin-left: 10px;"><sup> FCAI
+            student Affairs</sup></span></a>
+    </div>
+
+    <input type="checkbox" id="menuBar">
+    <label for="menuBar">Menu</label>
+    <nav class="navbar">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="studentInfo.html">search students </a></li>
+        <li><a href="addStudent.html">Add New Student</a></li>
+        <li><a href="allStatus.html">View Status</a></li>
+        <li><a href="index.html">Username </a>
+          <ul>
+            <li><a href="login.html" class="sign-out-btn">Sign Out </a>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <section class="table__header">
+    <h1 class="statusTitle">Students Info</h1>
+  </section>
+
+  <div class="allStatusTable">
+    <main class="table" id="saifTable">
+      <section class="table__body">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>20210224</td>
+              <td>Abdelrahman Gomaa</td>
+              <td>
+                <select name="stDstatus" id="stDstatus">
+                  <option value="Active" selected>Active</option>
+                  <option value="Inactive">Inactive</option>
+                </select>
+              </td>
+            </tr>
+
+            <tr>
+              <td>20210224</td>
+              <td>Saif El-Din Hazem</td>
+              <td>
+                <select name="stDstatus" id="stDstatus">
+                  <option value="Active" selected>Active</option>
+                  <option value="Inactive">Inactive</option>
+                </select>
+              </td>
+            </tr>
+
+            <div class="smallBtnArea">
+              <input type="submit" value="Save" class="Btn">
+            </div>
+          </tbody>
+
+        </table>
+      </section>
+    </main>
+  </div>
+
+
+  </section>
+  </main>
+
+
+  <footer>
+    <p>Copyright © DREAM TEAM </p>
+  </footer>
+
+</body>
+
+</html>

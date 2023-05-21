@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Login Page</title>
+    <link rel="icon" href="{% static 'images/icon.webp' %}" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+
+  <body>
+    <div class="box_form">
+      <div class="left">
+        <div class="overlay">
+          <a href="login.html">
+            <img
+              id="img_login"
+              src="https://i.pinimg.com/564x/fc/e8/1e/fce81e43f79d0d87898fd4765f984553.jpg"
+              alt=""
+          /></a>
+        </div>
+      </div>
+      <div class="right">
+        <img
+          src="https://i.pinimg.com/564x/0d/01/06/0d01065747c0b1958821159f24adb792.jpg"
+          alt=""
+          style="
+            width: 100px;
+            height: 100px;
+            margin-left: 170px;
+            margin-top: 60px;
+          "
+        />
+        <h5 id="h5_login">Login</h5>
+        <div class="inputs">
+          <form action="index.html" method="get">
+            <label for="email"></label>
+            <input
+              id="input_login"
+              type="email"
+              name="email"
+              placeholder="   E-mail"
+              required
+            />
+            <br />
+            <br />
+            <label for="password"></label>
+            <input
+              id="input_login"
+              type="password"
+              name="password"
+              placeholder="   Password"
+              minlength="8"
+              required
+            />
+            <br />
+            <br />
+            <!--<div class="Remember">
+            <label >
+              <input checked="checked" name="item" type="checkbox">
+              <span class="text">Remember me </span>
+            </label> 
+          </div>-->
+
+            <button id="button_login" type="submit">Login</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

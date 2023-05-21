@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block body %}
+<section class="table__header">
+  <h1 class="statusTitle">Students Info</h1>
+</section>
+
+<div class="allStatusTable">
+  <main class="table" id="saifTable">
+    <section class="table__body">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for student in allStudents %}
+          <div id="studentContainer">
+            <tr>
+              <td>{{ student.id }}</td>
+              <td>{{ student }}</td>
+              <td>
+                <select name="stDstatus" id="stDstatus_{{ student.id }}" data-student-id="{{ student.id }}">
+                  <option value="Active" {% if student.status == "ACTIVE" %}selected{% endif %}>Active</option>
+                  <option value="Inactive" {% if student.status == "INACTIVE" %}selected{% endif %}>In Active</option>
+                </select>
+              </td>
+            </tr>
+          </div>
+          {% endfor %}
+
+
+          <div class="smallBtnArea">
+            <input type="submit" value="Save" class="Btn">
+          </div>
+        </tbody>
+
+      </table>
+    </section>
+  </main>
+</div>
+
+
+</section>
+</main>
+
+
+  
+{% endblock body %}

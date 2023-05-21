@@ -1,0 +1,47 @@
+{% extends 'base.html' %} {% block body %}
+
+<br /><br /><br />
+<section class="table__header">
+  <h1 class="statusTitle">Students Info</h1>
+</section>
+
+<div class="allStatusTable">
+  <main class="table" id="saifTable">
+    <section class="table__body">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>ID</th>
+            <th>Level</th>
+            <th>GPA</th>
+            <th>Department</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for student in allStudents %}
+          <div id="studentContainer">
+            <tr>
+              <td>
+                <a
+                  style="text-decoration: none"
+                  href="{% url 'students:studentInfo' student.id %}"
+                  >{{student.name}}
+                </a>
+              </td>
+              <td>{{student.id}}</td>
+              <td>{{student.level}}</td>
+              <td>{{student.gpa}}</td>
+              <td>{{student.department}}</td>
+              <td>{{student.status}}</td>
+            </tr>
+          </div>
+          {% endfor %}
+        </tbody>
+      </table>
+    </section>
+  </main>
+</div>
+
+{% endblock body %}

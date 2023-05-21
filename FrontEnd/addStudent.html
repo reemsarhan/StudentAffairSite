@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add New Student</title>
+  <link rel="icon" href="images/icon.webp" />
+  <link rel="stylesheet" href="css/style.css">
+  <script src="logic.js">
+  </script>
+</head>
+
+<body>
+
+  <header>
+    <div class="navleft">
+      <sub><img src="images/icon.webp" alt="icon" style="width: 40px;"></sub>
+      <a style="text-decoration: none; color: black; font-size: 25px; font-weight: bold;" href="index.html"><span
+          style="margin-left: 10px;"><sup> FCAI
+            student Affairs</sup></span></a>
+    </div>
+
+    <input type="checkbox" id="menuBar">
+    <label for="menuBar">Menu</label>
+    <nav class="navbar">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="studentInfo.html">search students </a></li>
+        <li><a href="addStudent.html">Add New Student</a></li>
+        <li><a href="allStatus.html">View Status</a></li>
+        <li><a href="index.html">Username </a>
+          <ul>
+            <li><a href="login.html" class="sign-out-btn">Sign Out </a>
+          </ul>
+    </nav>
+  </header>
+
+  <br> <br>
+  <section class="table__header">
+    <h1 class="statusTitle">Add New Student</h1>
+  </section>  
+  <div class="formOverall">
+    <form action="studentInfo.html" id="addnewinfo">
+      <div class="studentData">
+
+        <div>
+          <span class="formName" id="required">Student Name</span>
+          <label class="required"></label>
+          <input type="text" name="name" required placeholder="Enter name" id="stdname">
+        </div>
+
+        <div class="box" id="id">
+          <span class="formName" id="required">Student ID</span>
+          <label class="required"></label>
+          <input type="text" name="id" required minlength="8" maxlength="8" placeholder="Enter ID" id="stdid">
+        </div>
+
+        <div class="box" id="date">
+          <span class="formName" id="required">Date of Birth</span>
+          <label class="required"></label>
+          <input type="Date" name="date" required id="stddate">
+        </div>
+
+        <div class="box" id="gpa">
+          <span class="formName" id="required">GPA</span>
+          <label class="required"></label>
+          <input type="number" name="gpa" required min="0" max="4" step="0.01" value="0" id="stdgpa">
+        </div>
+
+        <div>
+          <span class="formName" id="required">Phone number</span>
+          <label class="required"></label>
+          <input type="text" name="mobile" required minlength="11" maxlength="11" placeholder="Enter phone Number"
+            id="stdnumber">
+        </div>
+
+        <div class="box" id="email">
+          <span class="formName" id="required">Email address</span>
+          <label class="required"></label>
+          <input type="email" name="email" required placeholder="Enter Email" id="stdemail">
+        </div>
+
+        <div class="address">
+          <span class="formName" id="required">Home Address</span>
+          <label class="required"></label>
+          <input type="text" name="home address" required placeholder="Enter home address" id="stdaddress">
+        </div>
+
+        <div class="radioAll">
+          <span class="formName" id="required">Gender</span>
+          <label for="gender" class="nonvisible"></label>
+          <input id="male" type="radio" name="gender" required>
+          <label for="male">Male</label>
+          <input id="female" type="radio" name="gender" required>
+          <label for="female">Female</label>
+        </div>
+
+        <div class="radioAll">
+          <span class="formName" id="required">Status</span>
+          <label for="status" class="nonvisible"></label>
+          <input id="active" type="radio" name="status" required>
+          <label for="active">Active</label>
+          <input id="inActive" type="radio" name="status" required>
+          <label for="inActive">Inactive</label>
+        </div>
+        <div class="box" id="level">
+          <span class="formName" id="required">Level</span>
+          <label class="required"></label>
+          <select name="level" required id="stdlevel">
+            <option value="1">Level 1</option>
+            <option value="2">Level 2</option>
+            <option value="3">Level 3</option>
+            <option value="4">Level 4</option>
+          </select>
+        </div>
+        <div class="box" id="department2">
+          <span class="formName" id="required">Department</span>
+          <label class="required"></label>
+          <input list="departments" placeholder="choose department" required id="stddepartment">
+          <datalist id="departments">
+            <option value="CS"></option>
+            <option value="AI"></option>
+            <option value="IS"></option>
+            <option value="IT"></option>
+            <option value="DS"></option>
+            <option value="General"></option>
+          </datalist>
+        </div>
+
+      </div>
+      <div class="smallBtnArea2">
+        <input type="reset" class="Btn2">
+        <input type="submit" value="Save" class="Btn2" id="stdsavebtn" onclick="Save()">
+      </div>
+    </form>
+
+
+  </div>
+
+  <br> <br> <br>
+
+  <footer>
+    <p>Copyright © DREAM TEAM </p>
+  </footer>
+
+</body>
+
+</html>

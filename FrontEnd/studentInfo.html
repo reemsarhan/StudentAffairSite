@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Status</title>
+    <link rel="icon" href="images/icon.webp" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <header>
+      <div class="navleft">
+        <sub><img src="images/icon.webp" alt="icon" style="width: 40px" /></sub>
+        <a
+          style="
+            text-decoration: none;
+            color: black;
+            font-size: 25px;
+            font-weight: bold;
+          "
+          href="index.html"
+          ><span style="margin-left: 10px"
+            ><sup> FCAI student Affairs</sup></span
+          ></a
+        >
+      </div>
+
+      <input type="checkbox" id="menuBar" />
+      <label for="menuBar">Menu</label>
+      <nav class="navbar">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="studentInfo.html">search students </a></li>
+          <li><a href="addStudent.html">Add New Student</a></li>
+          <li><a href="allStatus.html">View Status</a></li>
+          <li>
+            <a href="index.html">Username </a>
+            <ul>
+              <li><a href="login.html" class="sign-out-btn">Sign Out </a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <br /><br /><br />
+    <section class="table__header">
+      <h1 class="statusTitle">Students Info</h1>
+    </section>
+
+    <div class="allStatusTable">
+      <main class="table" id="saifTable">
+        <section class="table__body">
+          <table>
+            <thead>
+              <tr>
+                <th></th>
+                <th>Name</th>
+                <th>ID</th>
+                <th>Level</th>
+                <th>GPA</th>
+                <th>Department</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input type="radio" name="selectedOne" /></td>
+                <td>Name Example</td>
+                <td>ID Example</td>
+                <td>Level Example</td>
+                <td>GPA Example</td>
+                <td>Department Example</td>
+                <td>Status Example</td>
+              </tr>
+
+              <tr>
+                <td><input type="radio" name="selectedOne" /></td>
+                <td>Name Example</td>
+                <td>ID Example</td>
+                <td>Level Example</td>
+                <td>GPA Example</td>
+                <td>Department Example</td>
+                <td>Status Example</td>
+              </tr>
+              <tr>
+                <td>
+              <input type="radio" name="selectedOne" />
+                </td>
+                <td>Name Example</td>
+                <td>ID Example</td>
+                <td>Level Example</td>
+                <td>GPA Example</td>
+                <td>Department Example</td>
+                <td>Status Example</td>
+              </tr>
+
+              <div class="smallBtnArea">
+                <a href="{% url 'redirect-page' %}">
+                  <input type="button" value="Assign Department" class="Btn" />
+               </a>     
+                <input type="button"onclick="window.location.href='editInfo.html'"id="updateStudent"     value="Update" class="Btn" />
+                <input
+                  type="button"
+                  value="Delete"
+                  onclick="window.location.href='delete.html'"
+                  class="Btn"
+                />
+              </div>
+            </tbody>
+          </table>
+        </section>
+      </main>
+    </div>
+
+    <footer>
+      <p>Copyright © DREAM TEAM</p>
+    </footer>
+  </body>
+</html>

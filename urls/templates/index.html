@@ -1,0 +1,71 @@
+{% extends 'base.html' %} {% load static %} {% block body %}
+<container id="indexContainer">
+  <div class="card">
+    <img
+      src="{% static 'images/assignDepartment.jpg' %}"
+      alt="Placeholder Image"
+    />
+    <div class="card-body">
+      <h3>Assign Department</h3>
+      <p>
+        You can assign a student department if and only if you are in level 3
+        either you can’t.To assign the student department you have to enter the
+        student's name in the search box.
+      </p>
+      <a href="department.html">Learn More</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="{% static 'images/status.jpg' %}" alt="Placeholder Image" />
+    <div class="card-body">
+      <h3>View Students Status</h3>
+      <p>
+        You can view the status of all students either active or inactive, also
+        you can edit students' status from active to inactive and vice versa.
+      </p>
+
+      <a href="allStatus.html">Learn More</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <img
+      src="{% static 'images/addNewStudent.jfif' %}"
+      alt="Placeholder Image"
+    />
+    <div class="card-body">
+      <h3>Add New Student</h3>
+      <p>
+        You can add a new student by entering the students' information that
+        includes students' name, ID, date of birth, GPA, gender, level, status,
+        department(if the student is in level 3 ), email, phone number, and home
+        address.
+      </p>
+
+      <a href="addStudent.html">Learn More</a>
+    </div>
+  </div>
+</container>
+<section class="table__header">
+  <h1 class="statusTitle">Students Statistics</h1>
+</section>
+<container class="statistics-container">
+  <div class="statistic">
+    <h2>100</h2>
+    <p>Active Students</p>
+  </div>
+  <div class="statistic">
+    <h2>900</h2>
+    <p>Inactive Students</p>
+  </div>
+  <div class="statistic">
+    <h2>1000</h2>
+    <p>Total Students</p>
+  </div>
+</container>
+<br />
+<br />
+<br />
+
+{% endblock body %}

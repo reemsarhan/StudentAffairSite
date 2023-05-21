@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Department</title>
+    <link rel="icon" href="images/icon.webp" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="logic.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <div class="navleft">
+        <sub><img src="images/icon.webp" alt="icon" style="width: 40px" /></sub>
+        <a
+          style="
+            text-decoration: none;
+            color: black;
+            font-size: 25px;
+            font-weight: bold;
+          "
+          href="index.html"
+          ><span style="margin-left: 10px"
+            ><sup> FCAI student Affairs</sup></span
+          ></a
+        >
+      </div>
+      <input type="checkbox" id="menuBar" />
+      <label for="menuBar">Menu</label>
+      <nav class="navbar">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="studentInfo.html">search students </a></li>
+          <li><a href="addStudent.html">Add New Student</a></li>
+          <li><a href="allStatus.html">View Status</a></li>
+          <li>
+            <a href="index.html">Username </a>
+            <ul>
+              <li><a href="login.html" class="sign-out-btn">Sign Out </a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <br /><br />
+
+    <section class="table__header">
+      <h1 class="statusTitle">Assign Department</h1>
+    </section>
+    <form action="studentInfo.html">
+      <div id="assignDepartBox">
+        <h2 id="depH2">Student Info</h2>
+        <p id="depPargragh">Student Name: Example</p>
+        <p id="depPargragh">Student ID: Example</p>
+        <p id="depPargragh">Student Level: Example</p>
+        <p id="depPargragh">Department</p>
+        <label for="dep"></label> <br />
+        <select id="dep">
+          <option value="CS">Computer Science(CS)</option>
+          <option value="AI">Artifial Intelligence(AI)</option>
+          <option value="IS">Information System(IS)</option>
+          <option value="DS">Decission Support(DS)</option>
+          <option value="IT">Information Technology(IT)</option>
+        </select>
+
+        <div class="smallBtnArea">
+          <input
+            type="button"
+            value="Submit"
+            onclick=" return confirm('Are you sure?')"
+            class="Btn"
+          />
+        </div>
+      </div>
+    </form>
+
+    <footer>
+      <p>Copyright © DREAM TEAM</p>
+    </footer>
+  </body>
+</html>
