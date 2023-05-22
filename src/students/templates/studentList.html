@@ -3,49 +3,41 @@
 <section class="table__header">
   <h1 class="statusTitle">Students Info</h1>
 </section>
-
-<div class="allStatusTable">
-  <main class="table" id="saifTable">
-    <section class="table__body">
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for student in allStudents %}
-          <div id="studentContainer">
+<form action="" method="POST">
+  {% csrf_token %}
+  <div class="allStatusTable">
+    <main class="table" id="saifTable">
+      <section class="table__body">
+        <table>
+          <thead>
             <tr>
-              <td>{{ student.id }}</td>
-              <td>{{ student }}</td>
-              <td>
-                <select name="stDstatus" id="stDstatus_{{ student.id }}" data-student-id="{{ student.id }}">
-                  <option value="Active" {% if student.status == "ACTIVE" %}selected{% endif %}>Active</option>
-                  <option value="Inactive" {% if student.status == "INACTIVE" %}selected{% endif %}>In Active</option>
-                </select>
-              </td>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Status</th>
             </tr>
-          </div>
-          {% endfor %}
-
-
+          </thead>
+          <tbody>
+            {% for student in allStudents %}
+            <div id="studentContainer">
+              <tr>
+                <td>{{ student.id }}</td>
+                <td>{{ student }}</td>
+                <td>
+                  <select name="status_{{ student.id }}">
+                    <option value="act" {% if student.status == "ACTIVE" %}selected{% endif %}>Active</option>
+                    <option value="inact" {% if student.status == "INACTIVE" %}selected{% endif %}>Inactive</option>
+                  </select>
+                </td>
+              </tr>
+            </div>
+            {% endfor %}
+          </tbody>
           <div class="smallBtnArea">
-            <input type="submit" value="Save" class="Btn">
+            <input type="submit" value="Submit" onclick="return confirm('Are you sure?')" class="Btn" />
           </div>
-        </tbody>
-
-      </table>
-    </section>
-  </main>
-</div>
-
-
-</section>
-</main>
-
-
-  
+        </table>
+      </section>
+    </main>
+  </div>
+</form>
 {% endblock body %}
