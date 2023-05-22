@@ -1,36 +1,16 @@
-from django.shortcuts import render, redirect, reverse
-from django.shortcuts import render, get_object_or_404
+from urllib import request
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.http import HttpResponseRedirect
 from .models import Student
 from django.urls import reverse
-
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
 
 
 def index(request):
-    # Logic for the "Home" link
-    return render(request, 'index.html')
-
-
-def student_info(request):
-    # Logic for the "search students" link
-    return render(request, 'studentInfo.html')
-
-
-def add_student(request):
-    # Logic for the "Add New Student" link
-    return render(request, 'addStudent.html')
-
-
-def view_status(request):
-    # Logic for the "View Status" link
-    return render(request, 'allStatus.html')
-
-
-def sign_out(request):
-    # Logic for the "Sign Out" link
-    # Perform any sign out actions if needed
-    return redirect('index')  # Redirect to the home page
+    context = {}
+    return render(request, 'index.html', context)
 
 
 def studentList(request):
@@ -77,7 +57,6 @@ def student_detail_view(request, id):
 
 def assign_department(request, id):
     student = get_object_or_404(Student, id=id)
-
     if request.method == 'POST':
         department = request.POST.get('dep')
         student.department = department
@@ -96,17 +75,3 @@ def assign_status(request, id):
         return HttpResponseRedirect(reverse('students:studentInfo', args=[student.id]))
     context = {'student': student}
     return render(request, 'studentList.html', context)
-
-
-def save_status(request):
-    if request.method == 'POST':
-        for key, value in request.POST.items():
-            if key.startswith('status_'):
-                student_id = key.split('_')[1]
-                student = Student.objects.get(id=student_id)
-                student.status = value
-                student.save()
-        # Replace 'students' with the appropriate URL pattern name for displaying the student list
-        return redirect('students')
-    # Replace 'status.html' with the actual template name
-    return render(request, 'studentList.html')
