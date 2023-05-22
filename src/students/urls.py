@@ -18,4 +18,5 @@ urlpatterns = [
     path('assign-department/<int:id>/',
          views.assign_department, name='assign-department'),
     path('searchResults.html', views.search_results, name='searchResults'),
+
 ]

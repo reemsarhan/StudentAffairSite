@@ -9,8 +9,8 @@ Departments = (
 )
 
 Status = (
-    {'ACTIVE', 'Active'},
-    {'INACTIVE', 'InActive'}
+    {'ACTIVE', 'active'},
+    {'INACTIVE', 'inactive'}
 )
 
 Gender = ({'M', 'Male'},

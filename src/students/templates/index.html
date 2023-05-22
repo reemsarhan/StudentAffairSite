@@ -1,11 +1,22 @@
 {% extends 'base.html' %}  {% load static %}  {% block body %}
-  <div class="searchBox">
-    <div id="search"> 
-        <input type="search" placeholder="Search For Students" style="text-align:center;" id="searchid" name="NameTobeSearched"> 
-        <a href="{% url 'students:searchResults' %}">Search</a>
-    </div>
-  </div>
-  <div id="search-results"></div>
+  <div class="searchBox"> 
+
+        <div id="search"> 
+          <input type="search" placeholder="Search For Students" style="text-align:center;" id="searchid" name="NameTobeSearched"> 
+          <a>
+            <button type="submit" class="searchButton">
+              <i class="fa fa-search"></i> 
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-search" 
+                viewBox="0 0 16 16"> 
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" /> 
+              </svg> 
+            </button>
+        </a>
+        </div>
+      
+      
+    </div> 
+    <div id="search-results"></div>
   </form>
   </div> 
   <div id="search-results"></div>
@@ -22,7 +33,7 @@
               either you can’t.To assign the student department you have to enter the
               student's name in the search box.
           </p>
-          <a href="department.html">Learn More</a>
+          <a href="{% url 'students:studentData' %}">Learn More</a>
         </div>
     </div>
     <div class="card">
@@ -33,7 +44,7 @@
               You can view the status of all students either active or inactive, also
               you can edit students' status from active to inactive and vice versa.
           </p>
-          <a href="allStatus.html">Learn More</a>
+          <a href="{% url 'students:status' %}">Learn More</a>
         </div>
     </div>
     <div class="card">
@@ -49,7 +60,7 @@
               department(if the student is in level 3 ), email, phone number, and home
               address.
           </p>
-          <a href="addStudent.html">Learn More</a>
+          <a href="{% url 'students:add'%}">Learn More</a>
         </div>
     </div>
   </container>
@@ -58,18 +69,19 @@
   </section>
   <container class="statistics-container">
     <div class="statistic">
-        <h2>100</h2>
+        <h2>{{ active_students_count }}</h2>
         <p>Active Students</p>
     </div>
     <div class="statistic">
-        <h2>900</h2>
+        <h2>{{ inactive_students_count }}</h2>
         <p>Inactive Students</p>
     </div>
     <div class="statistic">
-        <h2>1000</h2>
+        <h2>{{ total_students_count }}</h2>
         <p>Total Students</p>
     </div>
-  </container>
+</container>
+
   <br />
   <br />
   <br />

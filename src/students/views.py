@@ -8,8 +8,15 @@ from django.contrib.auth.models import User
 
 
 def index(request):
-    allStudents = Student.objects.all()  # Get all students from the database
-    context = {'allStudents': allStudents}
+    active_students_count = Student.objects.filter(status='active').count()
+    inactive_students_count = Student.objects.filter(status='inactive').count()
+    total_students_count = Student.objects.all().count()
+
+    context = {
+        'active_students_count': active_students_count,
+        'inactive_students_count': inactive_students_count,
+        'total_students_count': total_students_count
+    }
     return render(request, 'index.html', context)
 
 
