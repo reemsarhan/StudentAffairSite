@@ -1,34 +1,42 @@
 {% extends 'base.html' %}
 
 {% block body %}
-    <br><br><br>
     <section class="table__header">
-      <h1 class="statusTitle">Student Info</h1>
+        <h1 class="statusTitle">Student Info</h1>
     </section>
-    <table>
-        <tr>
-            <td>Name</td>
-            <td>ID</td>
-            <td>Level</td>
-            <td>GPA</td>
-            <td>Status</td>
-            <td>Department</td>
-        </tr>
-        <tr>
-            <td>{{ student.name }}</td>
-            <td>{{ student.id }}</td>
-            <td>{{ student.level }}</td>
-            <td>{{ student.gpa }}</td>
-            <td>{{ student.status }}</td>
-            <td>{{ student.department }}</td>
-        </tr>
-    </table>
+    <br><br><br>
+    <div class="allStatusTable">
+        <main class="table" id="saifTable">
+            <section class="table__body">
+        <table>
+            
+            <tr>
+                <td>Name</td>
+                <td>ID</td>
+                <td>Level</td>
+                <td>GPA</td>
+                <td>Status</td>
+                <td>Department</td>
+            </tr>
+            <tr>
+                <td>{{ student.name }}</td>
+                <td>{{ student.id }}</td>
+                <td>{{ student.level }}</td>
+                <td>{{ student.gpa }}</td>
+                <td>{{ student.status }}</td>
+                <td>{{ student.department }}</td>
+            </tr>
+        </section>
+        <div class="smallBtnArea">
+            <a href="{% url 'students:assign-department' student.id %}">
+                <input type="button" value="Assign Department" class="Btn">
+            </a>
+            <input type="button" value="Update" onclick="window.location.href='editInfo.html'" class="Btn">
+            <input type="button" value="Delete" onclick="window.location.href='delete.html'" class="Btn">
+        </div>
+        </table>
+    </main>
+    </div> 
 
-    <div class="smallBtnArea">
-      <a href="{% url 'students:assign-department' student.id %}">
-          <input type="button" value="Assign Department" class="Btn">
-      </a>
-      <input type="button" value="Update" onclick="window.location.href='editInfo.html'" class="Btn">
-      <input type="button" value="Delete" onclick="window.location.href='delete.html'" class="Btn">
-  </div>
+
 {% endblock body %}

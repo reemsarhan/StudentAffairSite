@@ -6,6 +6,5 @@ from django.conf.urls.static import static  # For media files
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('students/',  include('students.urls', namespace='students')),
-    path('', include('students.urls')),
+    path('', include('students.urls', namespace='students')),
 ]

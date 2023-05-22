@@ -37,14 +37,17 @@
       <label for="menuBar">Menu</label>
       <nav class="navbar">
         <ul>
-          <li><a href=" ">Home</a></li>
-          <li><a href="studentInfo.html">search students </a></li>
-          <li><a href="addStudent.html">Add New Student</a></li>
-          <li><a href="allStatus.html">View Status</a></li>
+          <li><a href="{% url 'students:index' %}">Home</a></li>
+          <li><a href="{% url 'students:add' %}">Add New Student</a></li>
+          <li><a href="{% url 'students:status' %}">View Status</a></li>
           <li>
-            <a href="index.html">Username </a>
+            <a href="{% url 'students:index' %}">{{user.username}} </a>
             <ul>
-              <li><a href="login.html" class="sign-out-btn">Sign Out </a></li>
+              <li>
+                <a href="{% url 'students:login' %}" class="sign-out-btn"
+                  >Sign Out</a
+                >
+              </li>
             </ul>
           </li>
         </ul>
