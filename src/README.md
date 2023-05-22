@@ -5,7 +5,7 @@ Student Affairs Site is a website built using HTML, CSS, JavaScript, Python, SQL
 
 The following features are available on the Student Affairs Site:
 
-Add New Student: Users can add a new student to the system by providing the student's information, including ID, name, date of birth, GPA, gender, level, status, department, email, and mobile number.
+Add New Student: Users can add sa new student to the system by providing the student's information, including ID, name, date of birth, GPA, gender, level, status, department, email, and mobile number.
 
 Update Student Information: Users can update an existing student's information, except for the department field, which is disabled for editing.
 
