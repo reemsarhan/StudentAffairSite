@@ -325,7 +325,10 @@ footer {
   overflow-y: hidden;
 }
 
-#input_login {
+form div input[type="text"],
+form div input[type="password"],
+form div input[type="email"],
+form div input[type="number"] {
   margin-left: 100px;
   border-radius: 3px;
   height: 35px;
@@ -333,6 +336,13 @@ footer {
   border-color: #98bae3;
 }
 
+form label{
+  margin-left: 100px;
+  border-radius: 3px;
+  height: 35px;
+  width: 260px;
+  border-color: #98bae3;
+}
 #h5_login {
   display: block;
   font-size: 50px;
