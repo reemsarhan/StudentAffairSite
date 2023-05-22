@@ -39,7 +39,11 @@
         <ul>
           <li><a href="{% url 'students:index' %}">Home</a></li>
           <li><a href="{% url 'students:add' %}">Add New Student</a></li>
-          <li><a href="{% url 'students:status' %}">View Status</a></li>
+          <li>
+            <a href="{% url 'students:studentData' %}">Students Information</a>
+          </li>
+          <li><a href="{% url 'students:status' %}">Students Status</a></li>
+
           <li>
             <a href="{% url 'students:index' %}">{{user.username}} </a>
             <ul>
