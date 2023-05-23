@@ -8,24 +8,26 @@
     <div class="allStatusTable">
         <main class="table" id="saifTable">
             <section class="table__body">
-        <table>
-            
-            <tr>
-                <td>Name</td>
-                <td>ID</td>
-                <td>Level</td>
-                <td>GPA</td>
-                <td>Status</td>
-                <td>Department</td>
-            </tr>
-            <tr>
-                <td>{{ student.name }}</td>
-                <td>{{ student.id }}</td>
-                <td>{{ student.level }}</td>
-                <td>{{ student.gpa }}</td>
-                <td>{{ student.status }}</td>
-                <td>{{ student.department }}</td>
-            </tr>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>ID</th>
+                        <th>Level</th>
+                        <th>GPA</th>
+                        <th>Status</th>
+                        <th>Department</th>
+                    </tr>
+                </thead>
+                    <tr>
+                        <td>{{ student.name }}</td>
+                        <td>{{ student.id }}</td>
+                        <td>{{ student.level }}</td>
+                        <td>{{ student.gpa }}</td>
+                        <td>{{ student.status }}</td>
+                        <td>{{ student.department }}</td>
+                    </tr>
+                </table>
         </section>
         <div class="smallBtnArea">
             <a href="{% url 'students:assign-department' student.id %}">
