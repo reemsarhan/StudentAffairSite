@@ -3,7 +3,7 @@
 <section class="table__header">
   <h1 class="statusTitle">Students Info</h1>
 </section>
-<form action="" method="POST">
+<form action="{% url 'students:status' %}" method="POST">
   {% csrf_token %}
   <div class="allStatusTable">
     <main class="table" id="saifTable">

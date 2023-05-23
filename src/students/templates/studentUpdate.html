@@ -12,6 +12,8 @@
     method="POST"
     id="editform"
   >
+  {% csrf_token %}
+
     <div class="studentData">
       <div>
         <span class="formName">Student Name</span>
@@ -79,11 +81,11 @@
       <div>
         <span class="formName">Level</span>
         <label for="level" class="custom-select"></label>
-        <select name="status" >
-          <option value="1" {% if student.level == 1 %}selected{% endif %} >Level 1</option>
-          <option value="2" {% if student.level == 2 %}selected{% endif %}>Level 2</option>
-          <option value="3" {% if student.level == 3 %}selected{% endif %}>Level 3</option>
-          <option value="4" {% if student.level == 4 %}selected{% endif %}>Level 4</option>
+        <select name="level" >
+          <option value=1 {% if student.level == 1 %}selected{% endif %} >Level 1</option>
+          <option value=2 {% if student.level == 2 %}selected{% endif %}>Level 2</option>
+          <option value=3 {% if student.level == 3 %}selected{% endif %}>Level 3</option>
+          <option value=4 {% if student.level == 4 %}selected{% endif %}>Level 4</option>
         </select>
       </div>
       <div id="department">
@@ -101,13 +103,9 @@
     </div>
     <div class="smallBtnArea2">
       <input type="submit" value="Save" class="Btn2" />
-      <input type="reset" class="Btn2" />
-      <input
-        type="submit"
-        value="Delete"
-        class="Btn2"
-        onclick=" return confirm('Are you sure you want to delete this student?')"
-      />
+      <a href = "{% url 'students:delete' student.id%}">
+          <input type="button" value="Delete" class="Btn">
+      </a>
     </div>
   </form>
 </div>

@@ -95,7 +95,19 @@ def assign_department(request, id):
 def studentUpdateByID(request, id):
     student = get_object_or_404(Student, id=id)
     if request.method == 'POST':
+        level = request.POST.get('level')
+        email = request.POST.get('Email')
+        phoneNum = request.POST.get('mobile')
+        # Assuming there's a 'gpa' field in the form
+        gpa = request.POST.get('gpa')
 
+        student.level = level
+        student.email = email
+        student.phoneNumber = phoneNum
+        student.gpa = gpa  # Update the GPA field if necessary
+
+        student.save()
         return redirect('students:studentData')
+
     context = {'student': student}
     return render(request, 'studentUpdate.html', context)
