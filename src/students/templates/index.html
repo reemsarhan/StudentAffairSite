@@ -1,40 +1,31 @@
 {% extends 'base.html' %}  {% load static %}  {% block body %}
   <div class="searchBox"> 
-
-        <div id="search"> 
-          <input type="search" placeholder="Search For Students" style="text-align:center;" id="searchid" name="NameTobeSearched"> 
-          <a>
-            <button type="submit" class="searchButton">
-              <i class="fa fa-search"></i> 
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-search" 
-                viewBox="0 0 16 16"> 
-                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" /> 
-              </svg> 
-            </button>
+  
+      <div id="search"> 
+        <input type="search" placeholder="Search For Students" style="text-align:center;" id="searchid" name="NameTobeSearched"> 
+        <a>
+          <button type="submit" class="searchButton">
+            <i class="fa fa-search"></i> 
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-search" viewBox="0 0 16 16"> 
+              <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" /> 
+            </svg> 
+          </button>
         </a>
-        </div>
-      
-      
-    </div> 
-    <div id="search-results"></div>
-  </form>
+      </div>
   </div> 
   <div id="search-results"></div>
   <container id="indexContainer">
     <div class="card">
-        <img
-          src="{% static 'images/assignDepartment.jpg' %}"
-          alt="Placeholder Image"
-          />
-        <div class="card-body">
-          <h3>Assign Department</h3>
-          <p>
-              You can assign a student department if and only if you are in level 3
-              either you can’t.To assign the student department you have to enter the
-              student's name in the search box.
-          </p>
-          <a href="{% url 'students:studentData' %}">Learn More</a>
-        </div>
+      <img src="{% static 'images/assignDepartment.jpg' %}" alt="Placeholder Image"/>
+      <div class="card-body">
+        <h3>Assign Department</h3>
+        <p>
+          You can assign a student department if and only if you are in level 3
+          either you can’t.To assign the student department you have to enter the
+          student's name in the search box.
+        </p>
+        <a href="{% url 'students:studentData' %}">Learn More</a>
+      </div>
     </div>
     <div class="card">
         <img src="{% static 'images/status.jpg' %}" alt="Placeholder Image" />
@@ -48,10 +39,7 @@
         </div>
     </div>
     <div class="card">
-        <img
-          src="{% static 'images/addNewStudent.jfif' %}"
-          alt="Placeholder Image"
-          />
+        <img src="{% static 'images/addNewStudent.jfif' %}"alt="Placeholder Image"/>
         <div class="card-body">
           <h3>Add New Student</h3>
           <p>
@@ -80,7 +68,7 @@
         <h2>{{ total_students_count }}</h2>
         <p>Total Students</p>
     </div>
-</container>
+  </container>
 
   <br />
   <br />
