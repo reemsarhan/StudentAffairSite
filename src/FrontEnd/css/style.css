@@ -697,3 +697,13 @@ label span .text {
   text-transform: uppercase;
   text-align: center;
 }
+input[type="search" i] {
+  appearance: auto;
+  box-sizing: border-box;
+  padding: 10px;
+  border: none;
+  width: 450px;
+  height: 30px;
+  border-radius: 25px;
+  margin-left: 400px;
+}
