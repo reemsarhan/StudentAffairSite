@@ -33,7 +33,7 @@
             <a href="{% url 'students:assign-department' student.id %}">
                 <input type="button" value="Assign Department" class="Btn">
             </a>
-            <a href="{% url 'students:update'%}"><input type="button" value="Update" onclick="window.location.href='editInfo.html'" class="Btn"></a>
+            <a href="{% url 'students:studentUpdateByID' student.id %}"><input type="button" value="Update" onclick="window.location.href='editInfo.html'" class="Btn"></a>
             <a href = "{% url 'students:delete' student.id%}">
                 <input type="button" value="Delete" class="Btn">
             </a>        

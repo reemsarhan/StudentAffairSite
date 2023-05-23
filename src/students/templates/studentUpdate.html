@@ -1,28 +1,34 @@
-{% extends 'base.html' %} {% block body %}
+{% extends 'base.html' %} 
+{%load static %}
+{% block body %}
 
 <br />
 <br />
 <br />
 <h1 class="table__header" style="font-size: 25px">Edit Student Information</h1>
 <div class="formOverall">
-  <form action="studentInfo.html" id="editform">
+  <form
+    action="{% url 'students:studentUpdateByID' student.id %}"
+    method="POST"
+    id="editform"
+  >
     <div class="studentData">
       <div>
         <span class="formName">Student Name</span>
         <label for="name"></label>
-        <input type="text" name="name" disabled value="Abdelrahman" />
+        <input type="text" name="name" disabled value="{{student.name}}" />
       </div>
 
       <div>
         <span class="formName">Student ID</span>
         <label for="id"></label>
-        <input type="text" name="id" disabled value="20210224" />
+        <input type="text" name="id" disabled value="{{student.id}}" />
       </div>
 
       <div>
         <span class="formName">Date Of Birth</span>
         <label for="date"></label>
-        <input type="Date" name="date" disabled value="Example" />
+        <input type="text" name="date" disabled value="{{student.birthDate}}" />
       </div>
 
       <div>
@@ -34,7 +40,7 @@
           min="0"
           max="4"
           step="0.01"
-          value="3.29"
+          value="{{student.gpa}}"
         />
       </div>
       <div>
@@ -45,75 +51,51 @@
           name="mobile"
           minlength="11"
           maxlength="11"
-          value="01123679525"
+          value="{{student.phoneNumber}}"
         />
       </div>
 
       <div>
         <span class="formName">Email address</span>
         <label for="Email" class=""></label>
-        <input
-          id="Email"
-          name="Email"
-          type="text"
-          value="Abdelrahman@gmail.com"
-        />
-      </div>
-      <div>
-        <span class="formName">Home Address</span>
-        <label for="Home" class=""></label>
-        <input
-          type="text"
-          name="home address"
-          required
-          placeholder="Enter home address"
-          value="Haram"
-          id="stdaddress"
-        />
+        <input id="Email" name="Email" type="text" value="{{student.email}}" />
       </div>
       <div class="radioAll">
         <span class="formName">Gender</span>
         <label for="gender" class="nonvisible"></label>
-        <input type="radio" name="gender" disabled checked />
+        <input type="radio" name="gender" {% if student.gender == "M" %}checked{% endif %} disabled />
         <label>Male</label>
-        <input type="radio" name="gender" disabled />
+        <input type="radio" name="gender" {% if student.gender == "F" %}checked{% endif %} disabled/>
         <label>Female</label>
       </div>
       <div class="radioAll">
         <span class="formName">Status</span>
-        <label for="status" class="nonvisible"></label>
-        <input
-          id="active"
-          checked
-          type="radio"
-          name="status"
-          required
-          disabled
-        />
-        <label for="active">Active</label>
-        <input id="inActive" type="radio" name="status" required disabled />
-        <label for="inActive">Inactive</label>
-      </div>
+        <label for="active" class="nonvisible"></label>
+        <label for="inActive" class="nonvisible"></label>
+        <input type="radio" name="status"{% if student.status == "ACTIVE" %}checked{% endif %} />
+        <label>Active</label>
+        <input type="radio" name="status" {% if student.status == "INACTIVE" %}checked{% endif %}/>
+        <label>In Active</label>      </div>
       <div>
         <span class="formName">Level</span>
         <label for="level" class="custom-select"></label>
-        <select name="level" required>
-          <option value="1">Level 1</option>
-          <option value="2">Level 2</option>
-          <option value="3">Level 3</option>
-          <option value="4">Level 4</option>
+        <select name="status" >
+          <option value="1" {% if student.level == 1 %}selected{% endif %} >Level 1</option>
+          <option value="2" {% if student.level == 2 %}selected{% endif %}>Level 2</option>
+          <option value="3" {% if student.level == 3 %}selected{% endif %}>Level 3</option>
+          <option value="4" {% if student.level == 4 %}selected{% endif %}>Level 4</option>
         </select>
       </div>
       <div id="department">
         <span class="formName">Department</span>
         <label for="department"></label>
         <select disabled name="department" required>
-          <option value="CS">CS</option>
-          <option value="AI">AI</option>
-          <option value="IS">IS</option>
-          <option value="IT">IT</option>
-          <option value="DS">DS</option>
-          <option value="G" selected>General</option>
+          <option value="CS"  {% if student.department == "CS" %}selected{% endif %}>CS</option>
+          <option value="AI" {% if student.department == "AI" %}selected{% endif %}>AI</option>
+          <option value="IS" {% if student.department == "IS" %}selected{% endif %}>IS</option>
+          <option value="IT" {% if student.department == "IT" %}selected{% endif %}>IT</option>
+          <option value="DS" {% if student.department == "DS" %}selected{% endif %}>DS</option>
+          <option value="G" {% if student.department == "Gen" %}selected{% endif %}>General</option>
         </select>
       </div>
     </div>

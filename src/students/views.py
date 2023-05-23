@@ -69,18 +69,6 @@ def student_detail_view(request, id):
     return render(request, 'studentInfo.html', context)
 
 
-def assign_department(request, id):
-    student = get_object_or_404(Student, id=id)
-    if request.method == 'POST':
-        department = request.POST.get('dep')
-        student.department = department
-        student.save()
-        return redirect('students:studentData')
-
-    context = {'student': student}
-    return render(request, 'studentDepart.html', context)
-
-
 def search_results(request):
     search_term = request.GET.get('NameTobeSearched', '')
     students = Student.objects.filter(name__icontains=search_term)
@@ -91,3 +79,23 @@ def delete_student(request, student_id):
     student = get_object_or_404(Student, id=student_id)
     student.delete()
     return redirect('students:studentData')
+
+
+def assign_department(request, id):
+    student = get_object_or_404(Student, id=id)
+    if request.method == 'POST':
+        department = request.POST.get('dep')
+        student.department = department
+        student.save()
+        return redirect('students:studentData')
+    context = {'student': student}
+    return render(request, 'studentDepart.html', context)
+
+
+def studentUpdateByID(request, id):
+    student = get_object_or_404(Student, id=id)
+    if request.method == 'POST':
+
+        return redirect('students:studentData')
+    context = {'student': student}
+    return render(request, 'studentUpdate.html', context)

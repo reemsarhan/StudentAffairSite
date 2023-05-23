@@ -12,14 +12,13 @@ urlpatterns = [
     path('status/', views.studentList, name='status'),
     path('login/', login.as_view(template_name='login.html'), name='login'),
     path('<int:id>/', views.studentInfo, name='studentInfo'),
-    path('update/', views.studentUpdate, name='update'),
+    path('update/<int:id>/', views.studentUpdateByID, name='studentUpdateByID'),
+
     path('assigndep/', views.studentDepart),
     path('students/<int:id>/', views.student_detail_view, name='studentInfo'),
     path('assign-department/<int:id>/',
          views.assign_department, name='assign-department'),
     path('searchResults.html', views.search_results, name='searchResults'),
     path('delete/<int:student_id>/', views.delete_student, name='delete'),
-
-
 
 ]
