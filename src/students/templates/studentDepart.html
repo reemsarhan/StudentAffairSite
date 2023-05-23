@@ -6,29 +6,44 @@
 
 <form action="{% url 'students:assign-department' student.id %}" method="POST">
   {% csrf_token %}
-  <div id="assignDepartBox">
-    <h2 id="depH2">Student Info</h2>
-    <p id="depPargragh">Student Name: {{ student.name }}</p>
-    <p id="depPargragh">Student ID: {{ student.id }}</p>
-    <p id="depPargragh">Student Level: {{ student.level }}</p>
-    <p id="depPargragh">Department: {{ student.department }}</p>
-    <label for="dep"></label> <br />
-    <select id="dep" name="dep">
-      <option value="CS">Computer Science (CS)</option>
-      <option value="AI">Artificial Intelligence (AI)</option>
-      <option value="IS">Information System (IS)</option>
-      <option value="DS">Decision Support (DS)</option>
-      <option value="IT">Information Technology (IT)</option>
-    </select>
-
-    <div class="smallBtnArea">
-      <input
-        type="submit"
-        value="Submit"
-        onclick="return confirm('Are you sure?')"
-        class="Btn"
-      />
-    </div>
+  <div class="formOverall">
+    <form id="editform">
+      <h2 id="depH2">Student Info</h2>
+      <div class="studentData">
+        <div>
+          <span class="formName">Student Name</span>
+          <input type="text" name="name" disabled value="{{ student.name }}" />
+        </div>
+        <div>
+          <span class="formName">Student ID </span>
+          <input type="text" name="id" disabled value="{{ student.id }}" />
+        </div>
+        <div>
+          <span class="formName">Student Level</span>
+          <input type="text" name="id" disabled value="{{ student.level }}" />
+        </div>
+        <br /><br />
+        <div>
+          <span class="formName">Student Department</span>
+          <label for="dep"></label>
+          <select id="dep" name="dep" class="xD">
+            <option value="CS">Computer Science (CS)</option>
+            <option value="AI">Artificial Intelligence (AI)</option>
+            <option value="IS">Information System (IS)</option>
+            <option value="DS">Decision Support (DS)</option>
+            <option value="IT">Information Technology (IT)</option>
+          </select>
+        </div>
+      </div>
+      <div class="smallBtnArea">
+        <input
+          type="submit"
+          value="Submit"
+          onclick="return confirm('Are you sure?')"
+          class="Btn"
+        />
+      </div>
+    </form>
   </div>
 </form>
 
