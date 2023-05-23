@@ -5,11 +5,12 @@ from .models import Student
 from django.urls import reverse
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
+from django.http import JsonResponse
 
 
 def index(request):
-    active_students_count = Student.objects.filter(status='active').count()
-    inactive_students_count = Student.objects.filter(status='inactive').count()
+    active_students_count = Student.objects.filter(status='ACTIVE').count()
+    inactive_students_count = Student.objects.filter(status='INACTIVE').count()
     total_students_count = Student.objects.all().count()
 
     context = {
@@ -24,12 +25,6 @@ def base(request):
     allAdmins = User.objects.all()  # Get all students from the database
     context = {'allAdmins': allAdmins}
     return render(request, 'base.html', context)
-
-
-def studentList(request):
-    allStudents = Student.objects.all()  # Get all students from the database
-    context = {'allStudents': allStudents}
-    return render(request, 'studentList.html', context)
 
 
 def studentData(request):
@@ -92,6 +87,12 @@ def assign_department(request, id):
     return render(request, 'studentDepart.html', context)
 
 
+def studentList(request):
+    allStudents = Student.objects.all()  # Get all students from the database
+    context = {'allStudents': allStudents}
+    return render(request, 'studentList.html', context)
+
+
 def studentUpdateByID(request, id):
     student = get_object_or_404(Student, id=id)
     if request.method == 'POST':
@@ -100,14 +101,24 @@ def studentUpdateByID(request, id):
         phoneNum = request.POST.get('mobile')
         # Assuming there's a 'gpa' field in the form
         gpa = request.POST.get('gpa')
-
         student.level = level
         student.email = email
         student.phoneNumber = phoneNum
         student.gpa = gpa  # Update the GPA field if necessary
-
         student.save()
         return redirect('students:studentData')
 
     context = {'student': student}
     return render(request, 'studentUpdate.html', context)
+
+
+def updateStudentStatus(request):
+    if request.method == 'POST':
+        studentId = request.POST.get('studentId')
+        status = request.POST.get('status')
+
+        student = Student.objects.get(id=studentId)
+        student.status = status
+        student.save()
+        return JsonResponse({'success': True})
+    return JsonResponse({'success': False})

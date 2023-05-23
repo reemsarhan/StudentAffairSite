@@ -10,6 +10,8 @@ urlpatterns = [
     path('students/', views.studentData, name='studentData'),
     path('add/', views.studentAddition, name='add'),
     path('status/', views.studentList, name='status'),
+    path('update-status/', views.updateStudentStatus, name='update-status'),
+
     path('login/', login.as_view(template_name='login.html'), name='login'),
     path('<int:id>/', views.studentInfo, name='studentInfo'),
     path('update/<int:id>/', views.studentUpdateByID, name='studentUpdateByID'),

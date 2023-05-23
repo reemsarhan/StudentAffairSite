@@ -37,3 +37,4 @@ function storeStudentData() {
     var myContent = localStorage.getItem("myContent");
     document.getElementById("myTextarea").value = myContent;
   }
+

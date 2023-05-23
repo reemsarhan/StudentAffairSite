@@ -21,23 +21,48 @@
             <div id="studentContainer">
               <tr>
                 <td>{{ student.id }}</td>
-                <td>{{ student }}</td>
+                <td>{{ student.name }}</td>
                 <td>
-                  <select name="status_{{ student.id }}">
-                    <option value="act" {% if student.status == "ACTIVE" %}selected{% endif %}>Active</option>
-                    <option value="inact" {% if student.status == "INACTIVE" %}selected{% endif %}>Inactive</option>
+                  <label for="status" name="" ></label>
+                  <select   name="stDstatus" id="stDstatus" data-student-id="{{ student.id }}">
+                    <option value="ACTIVE" {% if student.status == "ACTIVE" %}selected{% endif %}>Active</option>
+                    <option value="INACTIVE" {% if student.status == "INACTIVE" %}selected{% endif %}>Inactive</option>
                   </select>
                 </td>
               </tr>
             </div>
             {% endfor %}
           </tbody>
-          <div class="smallBtnArea">
-            <input type="submit" value="Submit" onclick="return confirm('Are you sure?')" class="Btn" />
-          </div>
+
         </table>
       </section>
     </main>
   </div>
 </form>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $('#stDstatus').change(function() {
+      var selectedStatus = $(this).val();
+      var studentId = $(this).data('student-id');
+      
+      $.ajax({
+        url: '/update-status/',  
+        type: 'POST',
+        data: {
+          csrfmiddlewaretoken: '{{ csrf_token }}',
+          studentId: studentId,
+          status: selectedStatus,
+        },
+        success: function() {
+          
+          console.log('Status updated successfully');
+        },
+        error: function() {
+          console.log('Error updating status');
+        }
+      });
+    });
+  });
+</script>
 {% endblock body %}
