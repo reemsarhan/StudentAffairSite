@@ -696,5 +696,18 @@ input[type="search" i] {
   width: 450px;
   height: 30px;
   border-radius: 25px;
-  margin-left: 400px;
+  margin: 0 auto; /* Center horizontally */
+  display: block; /* Add this line to make it a block element */
+}
+
+.no-results-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+}
+
+.no-results {
+  font-size: 18px;
+  color: #555;
 }

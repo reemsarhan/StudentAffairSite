@@ -6,6 +6,7 @@ from django.urls import reverse
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.http import JsonResponse
+from django.contrib import messages
 
 
 def index(request):
@@ -48,6 +49,29 @@ def studentDepart(request):
 
 
 def studentAddition(request):
+    if request.method == 'POST':
+        user_id = request.POST.get('id')
+        user_name = request.POST.get('name')
+        user_status = request.POST.get('status')
+        user_birthDate = request.POST.get('birthDate')
+        user_gpa = request.POST.get('gpa')
+        user_phoneNumber = request.POST.get('phoneNumber')
+        user_email = request.POST.get('email')
+        user_gender = request.POST.get('gender')
+        user_level = request.POST.get('level')
+        user_department = request.POST.get('department')
+        if user_gender == "Male":
+            user_gender = "M"
+        elif user_gender == "Female":
+            user_gender = "F"
+        if user_status == "Active":
+            user_status = "ACTIVE"
+        elif user_status == "Inactive":
+            user_status = "INACTIVE"
+        data = Student(id=user_id, name=user_name, status=user_status, birthDate=user_birthDate, gpa=user_gpa,
+                       phoneNumber=user_phoneNumber, email=user_email, gender=user_gender, department=user_department, level=user_level)
+        data.save()
+    messages.success(request, 'Student data saved successfully.')
     return render(request, 'studentAddition.html')
 
 
@@ -122,3 +146,14 @@ def updateStudentStatus(request):
         student.save()
         return JsonResponse({'success': True})
     return JsonResponse({'success': False})
+
+
+def search_results(request):
+    if 'NameTobeSearched' in request.GET:
+        search_name = request.GET['NameTobeSearched']
+        students = Student.objects.filter(
+            name__istartswith=search_name, status='ACTIVE')
+        if students.exists():
+            return render(request, 'searchResults.html', {'students': students})
+    not_found = True
+    return render(request, 'searchResults.html', {'not_found': not_found})

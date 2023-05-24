@@ -23,8 +23,8 @@
                 <td>{{ student.id }}</td>
                 <td>{{ student.name }}</td>
                 <td>
-                  <label for="status" name="" ></label>
-                  <select   name="stDstatus" id="stDstatus" data-student-id="{{ student.id }}">
+                  <label for="status" name=""></label>
+                  <select name="stDstatus" class="stDstatus" data-student-id="{{ student.id }}">
                     <option value="ACTIVE" {% if student.status == "ACTIVE" %}selected{% endif %}>Active</option>
                     <option value="INACTIVE" {% if student.status == "INACTIVE" %}selected{% endif %}>Inactive</option>
                   </select>
@@ -42,7 +42,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
   $(document).ready(function() {
-    $('#stDstatus').change(function() {
+    $('.stDstatus').change(function() {
       var selectedStatus = $(this).val();
       var studentId = $(this).data('student-id');
       
@@ -54,15 +54,10 @@
           studentId: studentId,
           status: selectedStatus,
         },
-        success: function() {
-          
-          console.log('Status updated successfully');
-        },
-        error: function() {
-          console.log('Error updating status');
-        }
+        
       });
     });
   });
 </script>
+
 {% endblock body %}

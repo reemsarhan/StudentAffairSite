@@ -4,7 +4,8 @@
   <h1 class="statusTitle">Add New Student</h1>
 </section>
 <div class="formOverall">
-  <form action="studentInfo.html" id="addnewinfo">
+  <form action="{% url 'students:add' %}" id="addnewinfo" method="POST">
+    {% csrf_token %}
     <div class="studentData">
       <div>
         <span class="formName" id="required">Student Name</span>
@@ -35,7 +36,7 @@
       <div class="box" id="date">
         <span class="formName" id="required">Date of Birth</span>
         <label class="required"></label>
-        <input type="Date" name="date" required id="stddate" />
+        <input type="Date" name="birthDate" required id="stddate" />
       </div>
 
       <div class="box" id="gpa">
@@ -58,7 +59,7 @@
         <label class="required"></label>
         <input
           type="text"
-          name="mobile"
+          name="phoneNumber"
           required
           minlength="11"
           maxlength="11"
@@ -82,18 +83,24 @@
       <div class="radioAll">
         <span class="formName" id="required">Gender</span>
         <label for="gender" class="nonvisible"></label>
-        <input id="male" type="radio" name="gender" required />
+        <input id="male" type="radio" name="gender" value="Male" required />
         <label for="male">Male</label>
-        <input id="female" type="radio" name="gender" required />
+        <input id="female" type="radio" name="gender" value="Female" required />
         <label for="female">Female</label>
       </div>
 
       <div class="radioAll">
         <span class="formName" id="required">Status</span>
         <label for="status" class="nonvisible"></label>
-        <input id="active" type="radio" name="status" required />
+        <input id="active" type="radio" name="status" value="ACTIVE" required />
         <label for="active">Active</label>
-        <input id="inActive" type="radio" name="status" required />
+        <input
+          id="inActive"
+          type="radio"
+          name="status"
+          value="INACTIVE"
+          required
+        />
         <label for="inActive">Inactive</label>
       </div>
       <div class="box" id="level">
@@ -114,26 +121,21 @@
           placeholder="choose department"
           required
           id="stddepartment"
+          name="department"
         />
         <datalist id="departments">
-          <option value="CS"></option>
-          <option value="AI"></option>
-          <option value="IS"></option>
-          <option value="IT"></option>
-          <option value="DS"></option>
-          <option value="General"></option>
+          <option value="CS">CS</option>
+          <option value="AI">AI</option>
+          <option value="IS">IS</option>
+          <option value="IT">IT</option>
+          <option value="DS">DS</option>
+          <option value="General">General</option>
         </datalist>
       </div>
     </div>
     <div class="smallBtnArea2">
       <input type="reset" class="Btn2" />
-      <input
-        type="submit"
-        value="Save"
-        class="Btn2"
-        id="stdsavebtn"
-        onclick="Save()"
-      />
+      <input type="submit" value="Save" class="Btn2" id="stdsavebtn" />
     </div>
   </form>
 </div>
@@ -141,4 +143,5 @@
 <br />
 <br />
 <br />
+<!-- onclick="Save()" -->
 {% endblock body %}

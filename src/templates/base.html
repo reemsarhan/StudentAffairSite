@@ -26,7 +26,7 @@
             font-size: 25px;
             font-weight: bold;
           "
-          href="index.html"
+          href="{% url 'students:index' %}"
           ><span style="margin-left: 10px"
             ><sup> FCAI student Affairs</sup></span
           ></a
@@ -38,6 +38,7 @@
       <nav class="navbar">
         <ul>
           <li><a href="{% url 'students:index' %}">Home</a></li>
+          <li><a href="{% url 'students:searchResults' %}">Search</a></li>
           <li><a href="{% url 'students:add' %}">Add New Student</a></li>
           <li>
             <a href="{% url 'students:studentData' %}">Students Information</a>
