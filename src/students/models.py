@@ -40,6 +40,3 @@ class Student(models.Model):
 
     def __str__(self):
         return self.name
-
-    def getFirstName(self):
-        return self.name.split()[0]

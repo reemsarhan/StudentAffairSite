@@ -25,7 +25,9 @@
             <tr>
               <td>
                 <a
-                  style="text-decoration: none"
+                  style="text-decoration: none; color: black"
+                  onmouseover="this.style.color='#668caafe'; this.style.fontWeight='bold';"
+                  onmouseout="this.style.color='black';this.style.fontWeight='normal';"
                   href="{% url 'students:studentInfo' student.id %}"
                   >{{student.name}}
                 </a>
