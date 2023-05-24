@@ -5,6 +5,7 @@ DEPARTMENTS = (
     ('IS', 'Information Systems'),
     ('IT', 'Information Technology'),
     ('DS', 'Decision Support'),
+    ('AI', 'Artificial Intelligence'),
     ('Gen', 'General'),
 )
 
